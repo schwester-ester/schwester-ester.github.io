@@ -41,7 +41,7 @@ Files are listed alphabetically by filename. Prefix filenames with a date (such 
 
 ## Edit the grad school conversations
 
-The “Advice for grad school” page lives in `content/conversations/advice-for-grad-school/`. Edit `C1.txt` through `C4.txt` to update the corresponding dropdown. Their first lines (`# C1`, etc.) set the dropdown labels. The remaining text is displayed literally with its original line breaks. The folder's `index.txt` sets the page title.
+The “Advice for grad school” page lives in `content/conversations/advice-for-grad-school/`. Edit `C1.txt` through `C4.txt` to update the corresponding dropdown. Their first lines (`# C1`, etc.) set the dropdown labels. The remaining text retains its original wording and line breaks; lines ending with a question mark are styled in bold italics. The folder's `index.txt` sets the page title.
 
 To create another page of dropdowns, add a subfolder with an `index.txt` containing `# Your page title`, and put the individual `.txt` or `.md` files beside it. They will appear as dropdowns in filename order, with their text displayed literally. Folders without an `index.txt` retain the usual individual-file behavior.
 

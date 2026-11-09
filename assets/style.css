@@ -70,6 +70,8 @@ h1 { font-size: clamp(42px, 4.3vw, 59px); line-height: 1.13; letter-spacing: -2.
 .conversation summary::marker { font-size: 14px; }
 .conversation summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 .conversation-text { margin: 4px 0 30px; }
+.conversation-question { display: block; margin: 24px 0 6px; font-weight: 600; line-height: 1.65; }
+.conversation-question:first-child { margin-top: 0; }
 .noscript { margin: 20px; }
 @media (min-width: 1450px) { .site-shell { margin-top: 35px; min-height: calc(100vh - 35px); } .sidebar { height: calc(100vh - 35px); min-height: calc(100vh - 35px); } }
 @media (max-width: 1000px) { .site-shell { grid-template-columns: 235px minmax(0, 1fr); } .sidebar { padding-left: 32px; padding-right: 25px; } .intro-grid { grid-template-columns: minmax(0, 1fr) 165px; gap: 26px; } .explore-link { grid-template-columns: 20px 155px 1fr 18px; } }

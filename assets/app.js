@@ -144,6 +144,19 @@ function sectionPage(section) {
   main.append(list);
 }
 
+function conversationText(text) {
+  const body = element('div', 'document-text conversation-text');
+  text.split('\n').forEach((line, index) => {
+    if (index) body.append(document.createTextNode('\n'));
+    if (line.trimEnd().endsWith('?')) {
+      const question = element('strong', 'conversation-question');
+      question.append(element('em', '', line));
+      body.append(question);
+    } else body.append(document.createTextNode(line));
+  });
+  return body;
+}
+
 function reader(section, path) {
   const file = content.sections[section].files.find(file => file.path === path);
   const back = element('a', 'back-link', `← Back to ${sections[section].label.toLowerCase()}`);
@@ -162,7 +175,7 @@ function reader(section, path) {
       const dropdown = element('details', 'conversation');
       const summary = element('summary', '', item.title);
       const text = item.text.replace(/^#\s+[^\n]+\n?/, '').trim();
-      dropdown.append(summary, element('div', 'document-text conversation-text', text));
+      dropdown.append(summary, conversationText(text));
       collection.append(dropdown);
     });
     main.append(collection);
