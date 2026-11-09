@@ -1,0 +1,21 @@
+# C3
+
+How are you?
+I'm not doing a lot of math. My students are doing a lot of math. I'm arguing about letting the department keep its whiteboard markers.
+What is the difference between industry and academia in post-quantum crypto?
+I haven't felt a difference between working in industry and academia. To me it's just working on different parts of the continuous spectrum of cryptography. On one end you have writing papers (for other mathematicians), and on the other, you have writing patents (for lawyers). But it's all part of the same process. Also, I think in 10 years, it won't be "post quantum crypto" anymore. It'll just be "crypto". We'll get there, with quantum computers. Or maybe a secret government agency already got there. And the problem is that, if you're a private business, you can't outsource your cryptography. That's the whole point of being private. So every company will need cryptographers. Nearly all my students go to industry.
+
+Thoughts about living in the US?
+
+The people who voted for Trump who are problematic and you see on the news -- they have already been there for the last 10-20 years already. If you go to West Virginia, it's always been hard to get an abortion there. Trump probably won't get a third term because the Supreme Court, while corrupt, isn't completely corrupt, and they do force him to do things.
+
+How does one choose a field of pure math to study that has "applications"?
+
+Cryptography is a good justification for doing math because, you can basically just translate a hard math problem into a way of encrypting data, and this results in getting a lot of people interested in the math problem. For example, if someone were to say "proving the Riemann Hypothesis is hard. Here's how we're going to translate this into encryption", then a lot of people would study the Riemann Hypothesis. It's very hard to make that translation. Not a lot of people who know really hard math (ex. the 1000s of people who understand the proof of Fermat's Last Theorem) can do simple cryptography, and vice versa. Be good at both! But if you're looking for some justification that isn't cryptography, then it's a good idea to find a way to translate hard math problems into something useful in the real world. Cryptography is just the way I found to do this translation method. Intersectionality and being one of the 5 people in the world who can do a thing makes you a viable candidate for an academic career. There's some things with topological data analysis, neuroscience, protein folding that could be an interesting way to apply geometry.
+
+What was your grad school experiences? What went well and what would you do differently if you had to do it again?
+
+One of my regrets in grad school was thinking that my professors were too much "above me". So I waited until my fourth year to get an advisor. Don't do this. If I had realized this in my second year, I guess I could have graduated in three years, because that's how long it actually took me! :). But at some point I got tired of floundering about in my fourth year, and understood that professors are contractually bound to do what you ask them, (if you are a grad student). That is the point of being in grad school, because they do want you to be there.
+
+Advice for Stanford?
+Quals are hard because it's not just about knowing the math, but it's about being able to use the math, and know when a particular theorem is applicable, in order to prove things. Practice a lot.

@@ -18,6 +18,18 @@ def url(path):
     return quote(path.relative_to(ROOT).as_posix(), safe="/")
 
 
+def document(path):
+    kind = path.suffix.lower().lstrip(".")
+    entry = {"title": path.stem.replace("-", " ").replace("_", " "),
+             "path": url(path), "type": kind}
+    if kind in {"txt", "md"}:
+        entry["text"] = read(path)
+        first_line = entry["text"].splitlines()
+        if first_line and first_line[0].startswith("# "):
+            entry["title"] = first_line[0][2:].strip()
+    return entry
+
+
 def build():
     data = {"intro": read(ROOT / "content/intro.txt"), "portrait": None, "sections": {}}
     photos = sorted(path for path in (ROOT / "profile-pic").iterdir()
@@ -29,19 +41,24 @@ def build():
     for section in SECTIONS:
         folder = ROOT / "content" / section
         files = []
+        collections = {index.parent for index in folder.rglob("index.txt")
+                       if index.parent != folder
+                       and not any(part.startswith(".") for part in index.relative_to(folder).parts)}
         for path in sorted(folder.rglob("*")):
             if (not path.is_file() or path.suffix.lower() not in FILE_TYPES
                     or path == folder / "index.txt"
                     or any(part.startswith(".") for part in path.relative_to(folder).parts)):
                 continue
-            kind = path.suffix.lower().lstrip(".")
-            entry = {"title": path.stem.replace("-", " ").replace("_", " "),
-                     "path": url(path), "type": kind}
-            if kind in {"txt", "md"}:
-                entry["text"] = read(path)
-                first_line = entry["text"].splitlines()
-                if first_line and first_line[0].startswith("# "):
-                    entry["title"] = first_line[0][2:].strip()
+            if path.parent in collections and path.suffix.lower() in {".txt", ".md"}:
+                if path.name != "index.txt":
+                    continue
+                entry = document(path)
+                entry["type"] = "collection"
+                entry["items"] = [document(child) for child in sorted(path.parent.iterdir())
+                                  if child.is_file() and child.suffix.lower() in {".txt", ".md"}
+                                  and child.name != "index.txt" and not child.name.startswith(".")]
+            else:
+                entry = document(path)
             files.append(entry)
         data["sections"][section] = {"intro": read(folder / "index.txt"), "files": files}
     (ROOT / "content.json").write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

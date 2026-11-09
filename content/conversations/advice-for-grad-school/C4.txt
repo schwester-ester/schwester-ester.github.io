@@ -1,0 +1,9 @@
+# C4
+
+Advice for grad school?
+Find some people who enjoy math. Surround yourself with people who are smarter than you who you like to work with. Its inspiring. But there will be jerks, so watch out for that.
+Study for your quals. They don't want you to fail -- but you will certainly need to study.
+Expect to go to a few seminars each week.
+People who are very deep into a subject right now tend to do less well. Be willing to learn lots of new things -- that's how research is done. The people who do the best are the ones who are willing to do computations and examples. I do a decent amount of coding (in python). It doesnt have to be good or efficient code; it just needs to run once so that I get the data I need. And we have great fancy computers here! So it really doesn't need to be efficient code. Why do I code to do math? Well, it is much easier to prove results that you know are true. 
+You say that combinatorics is a "school of thought" rather than a field of mathematics. Can you explain?
+Eventually, every math proof will boil down to some combinatorics. If it doesn't, then you are just shuffling definitions. As a combinatorist, I am the guy who solves the combinatorics once the other math people boil it down to this part of the problem.

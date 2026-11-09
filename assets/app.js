@@ -1,9 +1,9 @@
 /* Content is built by build.py. No framework, account, or database required. */
 const main = document.querySelector('main');
 const sections = {
-  math: { label: 'Math', description: 'Notes, questions & ideas' },
+  math: { label: 'Mathematics', description: 'Notes, questions & ideas' },
+  blog: { label: 'Writing', description: 'Occasional writing' },
   conversations: { label: 'Conversations', description: 'Thinking together' },
-  blog: { label: 'Blog', description: 'Occasional writing' },
 };
 let content;
 
@@ -133,10 +133,11 @@ function sectionPage(section) {
   data.files.forEach(file => {
     const item = element('li');
     const link = element('a');
-    const viewable = ['txt', 'md', 'pdf'].includes(file.type);
+    const viewable = ['txt', 'md', 'pdf', 'collection'].includes(file.type);
     link.href = viewable ? fileHref(section, file.path) : file.path;
     if (!viewable) link.setAttribute('download', '');
-    link.append(element('span', 'document-title', file.title), element('span', 'file-type', `${file.type} ${viewable ? '↗' : '↓'}`));
+    const label = file.type === 'collection' ? `${file.items.length} conversations` : file.type;
+    link.append(element('span', 'document-title', file.title), element('span', 'file-type', `${label} ${viewable ? '↗' : '↓'}`));
     item.append(link);
     list.append(item);
   });
@@ -145,14 +146,28 @@ function sectionPage(section) {
 
 function reader(section, path) {
   const file = content.sections[section].files.find(file => file.path === path);
-  const back = element('a', 'back-link', `← Back to ${section}`);
+  const back = element('a', 'back-link', `← Back to ${sections[section].label.toLowerCase()}`);
   back.href = `#/${section}`;
   main.append(back);
   if (!file) { main.append(element('h1', '', 'File not found'), element('p', '', 'This file may have been moved or removed.')); return; }
   document.title = `${file.title} — Maya (Esty) Gusak`;
   const header = element('header', 'document-header');
-  header.append(element('p', 'eyebrow', section), element('h1', '', file.title));
+  header.append(element('p', 'eyebrow', sections[section].label.toLowerCase()), element('h1', '', file.title));
   main.append(header);
+  if (file.type === 'collection') {
+    const intro = file.text.replace(/^#\s+[^\n]+\n?/, '').trim();
+    if (intro) main.append(prose(intro, section, file.path));
+    const collection = element('div', 'conversation-list');
+    file.items.forEach(item => {
+      const dropdown = element('details', 'conversation');
+      const summary = element('summary', '', item.title);
+      const text = item.text.replace(/^#\s+[^\n]+\n?/, '').trim();
+      dropdown.append(summary, element('div', 'document-text conversation-text', text));
+      collection.append(dropdown);
+    });
+    main.append(collection);
+    return;
+  }
   const download = element('a', 'download-link', 'Download original file ↓');
   download.href = file.path;
   download.setAttribute('download', '');

@@ -39,6 +39,12 @@ You can also find [a useful resource](https://example.com).
 
 Files are listed alphabetically by filename. Prefix filenames with a date (such as `2026-11-08-a-note.txt`) or a number to control their order. A `# Title` on the first line lets you keep a clean displayed title.
 
+## Edit the grad school conversations
+
+The “Advice for grad school” page lives in `content/conversations/advice-for-grad-school/`. Edit `C1.txt` through `C4.txt` to update the corresponding dropdown. Their first lines (`# C1`, etc.) set the dropdown labels. The remaining text is displayed literally with its original line breaks. The folder's `index.txt` sets the page title.
+
+To create another page of dropdowns, add a subfolder with an `index.txt` containing `# Your page title`, and put the individual `.txt` or `.md` files beside it. They will appear as dropdowns in filename order, with their text displayed literally. Folders without an `index.txt` retain the usual individual-file behavior.
+
 ## Add your profile photo
 
 Put a JPG, PNG, WebP, or AVIF image in `profile-pic/`. The next build picks it up automatically. If there is more than one image, name the preferred one `profile.jpg` (or `profile.png`, etc.). The photo is cropped to fit; adjust `.portrait { object-position: ...; }` in `assets/style.css` if needed.
