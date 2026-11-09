@@ -82,7 +82,6 @@ function footer() {
 }
 
 function home() {
-  main.append(element('p', 'eyebrow', 'A small corner of the internet'));
   const grid = element('div', 'intro-grid');
   const copy = element('div', 'intro-copy');
   copy.append(element('h1', '', 'Hello, I’m Esty.'));
