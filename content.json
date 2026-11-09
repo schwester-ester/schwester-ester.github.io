@@ -1,0 +1,18 @@
+{
+  "intro": "I'm Maya (Esty) Gusak, a math PhD student at Stanford University.\n\nThis is a small home for my mathematics, conversations, and occasional writing. Welcome.\n",
+  "portrait": null,
+  "sections": {
+    "math": {
+      "intro": "Notes, questions, and things I'm thinking about in mathematics.\n",
+      "files": []
+    },
+    "conversations": {
+      "intro": "A place for conversations, shared questions, and ideas that emerge along the way.\n",
+      "files": []
+    },
+    "blog": {
+      "intro": "Occasional thoughts, in writing.\n",
+      "files": []
+    }
+  }
+}
